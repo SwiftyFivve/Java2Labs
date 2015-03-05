@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/jordanweaver/j_weaver_labone/app/libs/commons-io-2.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/Users/jordanweaver/j_weaver_labone/app/build/intermediates/pre-dexed/debug/commons-io-2.4-ba7fda6d67ca2dd8ed87e6b02f74a9aa242b7b93.jar" />
+    </item>
+
+</items>
