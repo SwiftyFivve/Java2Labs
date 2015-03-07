@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/save_layout"
+    android:layout_gravity="center">
+
+    <com.loopj.android.image.SmartImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveConditionText"
+        android:layout_marginTop="15dp"
+        android:textSize="15dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/highLowSave"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>
