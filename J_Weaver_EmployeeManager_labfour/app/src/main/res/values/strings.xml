@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">J_Weaver_EmployeeManager_labfour</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="add_button">Add Employee</string>
+    <string name="settings_button">Settings</string>
+
+    <string name="form_title">Enter New Employee</string>
+    <string name="save_button">Save</string>
+    <string name="back_button">Back</string>
+
+    <string name="displayName">Employee Name: </string>
+
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="employee_number">Employee Number</string>
+    <string name="hire_date">Hire Date (ex.mmddyyyy)</string>
+    <string name="employee_status">Employee Status</string>
+
+    <string name="details_title">Employee Details</string>
+    <string name="delete_button">Delete</string>
+
+
+
+    <string name="clickable_title">Click Preference</string>
+    <string name="clickable_summary">A Clickable Android Preference object</string>
+    <string name="list_category">list_category</string>
+    <string name="list_pref_title">PREF_LIST_PREFERENCE</string>
+
+
+    <string-array name="list_enteries">
+        <item>mmDDyyyy</item>
+        <item>YYYY-mm-dd</item>
+        <item>Weekday, MMM d, yy</item>
+    </string-array>
+
+</resources>

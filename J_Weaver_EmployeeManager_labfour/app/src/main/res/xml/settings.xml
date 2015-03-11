@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference android:key="PREF_CLICKABLE"
+        android:title="@string/clickable_title"
+        android:summary="@string/clickable_summary" />
+
+    <PreferenceCategory android:title="@string/list_category">
+        <ListPreference android:key="@string/list_pref_title"
+            android:entries="@array/list_enteries"
+            android:entryValues="@array/list_values"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>
