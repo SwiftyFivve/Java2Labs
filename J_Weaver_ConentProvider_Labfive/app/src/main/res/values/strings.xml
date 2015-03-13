@@ -12,6 +12,10 @@
     <string name="last_name">Last Name</string>
     <string name="school_name">School Name</string>
     <string name="save_button">Save</string>
+    <string name="displayName">Name:</string>
+    <string name="details_title">DIS WHERE THEY GO SKOOL</string>
+    <string name="delete_button">Delete</string>
+    <string name="schoolName">School:</string>
 
 
 </resources>

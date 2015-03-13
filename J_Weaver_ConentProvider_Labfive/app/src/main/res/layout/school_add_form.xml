@@ -35,9 +35,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:id="@+id/employeeNumInput"
-        android:hint="@string/school_name"
-        android:inputType="number"/>
+        android:id="@+id/schoolInput"
+        android:hint="@string/school_name"/>
 
     <Button
         android:layout_width="fill_parent"

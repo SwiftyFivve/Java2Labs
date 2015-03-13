@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by jordanweaver on 3/11/15.
@@ -67,14 +68,28 @@ public class SchoolAddForm extends Fragment {
                 ContentResolver resolver = getActivity().getContentResolver();
 
                 ContentValues values = new ContentValues();
+                EditText firstName = (EditText)getActivity().findViewById(R.id.firstInput);
+                EditText lastName = (EditText)getActivity().findViewById(R.id.lastInput);
+                EditText school = (EditText)getActivity().findViewById(R.id.schoolInput);
 
-                values.put(DeVaunteDataContract.FIRST_NAME, "John");
-                values.put(DeVaunteDataContract.LAST_NAME, "Smith");
-                values.put(DeVaunteDataContract.NAMEOFSCHOOL, "FULLSAIL");
+                String fName = firstName.getText().toString();
+                String lName = lastName.getText().toString();
+                String mSchool = school.getText().toString();
+
+                if(!fName.trim().equals("") && !lName.trim().equals("") && !mSchool.trim().equals("")) {
 
 
-                resolver.insert(DeVaunteDataContract.DeVaunte_CONTENT_URI, values);
+                    values.put(DeVaunteDataContract.FIRST_NAME, fName);
+                    values.put(DeVaunteDataContract.LAST_NAME, lName);
+                    values.put(DeVaunteDataContract.NAMEOFSCHOOL, mSchool);
 
+
+                    resolver.insert(DeVaunteDataContract.DeVaunte_CONTENT_URI, values);
+
+                    if (mUpdater != null) {
+                        mUpdater.ChangeFrag("SchoolBackButton");
+                    }
+                }
 
             }
         });

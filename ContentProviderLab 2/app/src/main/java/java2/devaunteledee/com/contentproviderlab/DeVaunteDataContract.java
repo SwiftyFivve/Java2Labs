@@ -1,4 +1,4 @@
-package com.jordanweaver.j_weaver_conentprovider_labfive;
+package java2.devaunteledee.com.contentproviderlab;
 
 import android.net.Uri;
 
@@ -11,6 +11,10 @@ public class DeVaunteDataContract {
     public static final String DeVaunte_URI_STRING = "content://" + DeVaunte_URI_AUTHORITY + "/" + DeVaunte_DATA_TABLE;
 
     public static final Uri DeVaunte_CONTENT_URI = Uri.parse(DeVaunte_URI_STRING);
+
+
+
+
 
 
     public static final String ID = "_id";
