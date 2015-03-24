@@ -18,9 +18,13 @@ import java.util.ArrayList;
  */
 public class DetailsFragment extends ListFragment {
     public static final String TAG = "DetailsFragment.TAG";
+    public static final String ARG_BOOL = "Boolean.ARG_BOOL";
 
-    public static DetailsFragment detailsInstance(){
+    public static DetailsFragment detailsInstance(boolean runCheck){
         DetailsFragment detsFrag = new DetailsFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(ARG_BOOL, runCheck);
+        detsFrag.setArguments(args);
         return detsFrag;
     }
 
@@ -28,12 +32,23 @@ public class DetailsFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        String[] testAdapter = new String[]{};
-        ArrayAdapter<String> detailsAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, testAdapter);
 
-        setEmptyText("No Data");
+        ArrayList<FootballStaff> grabData = loadData();
 
-        setListAdapter(detailsAdapter);
+        Log.e("Check Array", grabData +"");
+
+        if(grabData == null){
+            grabData = new ArrayList<>();
+            ArrayAdapter<FootballStaff> detailsAdapter = new ArrayAdapter<FootballStaff>(getActivity(),
+                    android.R.layout.simple_list_item_1, grabData);
+            setListAdapter(detailsAdapter);
+        } else {
+            ArrayAdapter<FootballStaff> detailsAdapter = new ArrayAdapter<FootballStaff>(getActivity(),
+                    android.R.layout.simple_list_item_1, grabData);
+            setEmptyText("No Data");
+            setListAdapter(detailsAdapter);
+        }
+
 
     }
 
@@ -42,7 +57,7 @@ public class DetailsFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
     }
 
-    public void loadData(){
+    public ArrayList<FootballStaff> loadData(){
         File input = new File("array.txt");
 
         ArrayList<FootballStaff> collectiveArray = null;
@@ -62,5 +77,6 @@ public class DetailsFragment extends ListFragment {
             e.printStackTrace();
         }
 
+        return collectiveArray;
     }
 }

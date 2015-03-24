@@ -33,6 +33,11 @@ public class OwnerFormFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View formView = inflater.inflate(R.layout.owner_form_layout, container, false);
@@ -120,4 +125,5 @@ public class OwnerFormFragment extends Fragment {
         runOwner(collectiveArray);
 
     }
+
 }

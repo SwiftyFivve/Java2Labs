@@ -14,6 +14,7 @@
     <string name="ownership">Years of Ownership:</string>
     <string name="experience">Years of Experience:</string>
     <string name="position">Position:</string>
+    <string name="details_activity">Details</string>
 
     <string-array name="spinner_stuff">
         <item>Owner</item>
