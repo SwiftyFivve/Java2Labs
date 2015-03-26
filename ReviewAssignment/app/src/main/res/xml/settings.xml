@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/export_category">
+
+        <Preference android:key="PREF_CLICKABLE"
+            android:title="@string/clickable_title" />
+
+        <ListPreference android:key="PREF_LIST"
+            android:title="@string/export_format"
+            android:entries="@array/list_entries"
+            android:entryValues="@array/list_values"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/data_settings">
+
+        <Preference android:key="PREF_DELETE"
+            android:title="@string/delete" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+    <item android:id="@+id/action_favorites" android:title="@string/action_favorites"
+        android:showAsAction="ifRoom" android:icon="@android:drawable/star_big_off"/>
+
+    <item android:id="@+id/action_feed" android:title="@string/action_feed"
+        android:showAsAction="ifRoom" android:icon="@android:drawable/menu_frame" android:visible="false"/>
+
+
+</menu>

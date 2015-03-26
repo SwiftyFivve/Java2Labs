@@ -54,7 +54,8 @@ public class WeatherFragment extends android.app.ListFragment implements Network
     @Override
     public void updateArray(ArrayList<DailyWeather> _weather) {
 
-        ArrayAdapter<String> newAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getString(_weather));
+        ArrayAdapter<String> newAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, getString(_weather));
 
         setListAdapter(newAdapter);
 
