@@ -1,9 +1,21 @@
 package com.jordanweaver.j_weaver_longnews;
 
+
+//
+//
+//
+//Jordan Weaver
+//
+//
+//
+
+
+import java.io.Serializable;
+
 /**
  * Created by jordanweaver on 3/24/15.
  */
-public class NewsObject  {
+public class NewsObject implements Serializable {
 
     String source;
     String title;

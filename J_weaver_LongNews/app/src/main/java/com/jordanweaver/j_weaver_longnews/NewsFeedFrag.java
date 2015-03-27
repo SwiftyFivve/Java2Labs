@@ -1,5 +1,16 @@
 package com.jordanweaver.j_weaver_longnews;
 
+
+//
+//
+//
+//Jordan Weaver
+//
+//
+//
+
+
+import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
 import android.net.NetworkInfo;
@@ -25,12 +36,32 @@ public class NewsFeedFrag extends ListFragment implements NetworkUtils.DisplayDa
         return newsFeedFrag;
     }
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.news_feed_layout, container, false);
-//        return view;
-//    }
+    public interface UpdateView{
+        public void changeFrag(String _view, int _position);
+    }
 
+    public UpdateView mUpdate;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if(activity instanceof UpdateView){
+            mUpdate = (UpdateView)activity;
+        } else {
+            throw new IllegalArgumentException("Activity must implement the TextUpdater Interface");
+        }
+
+
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        mUpdate.changeFrag("DetailsView", position);
+
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -47,32 +78,40 @@ public class NewsFeedFrag extends ListFragment implements NetworkUtils.DisplayDa
 
         ArrayList<String> newsTitle = new ArrayList<>();
 
+
+        DataBaseHelper helper = new DataBaseHelper();
+        ArrayList<NewsObject> feedArray = helper.loadArray("SavedFeed.txt", getActivity());
+
         for(int i=0; i<_news.size(); i++){
-            //Log.e("Work!!", _news.get(i).title);
+
+            if(feedArray.size() == 0){
+                feedArray.add(0, _news.get(i));
+            } else {
+                feedArray.add(feedArray.size(), _news.get(i));
+                Log.e("Saved Array", feedArray+"");
+            }
+
+
+
+
             if(newsTitle.size() == 0){
                 newsTitle.add(0, _news.get(i).title);
             } else {
                 newsTitle.add(newsTitle.size(), _news.get(i).title);
             }
 
-            ArrayAdapter<String> newAdapter = new ArrayAdapter<String>(getActivity(),
-                    android.R.layout.simple_list_item_1, newsTitle);
 
-            setListAdapter(newAdapter);
 
         }
 
+        helper.saveArray(feedArray, "SavedFeed.txt", getActivity());
+
+        ArrayAdapter<String> newAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, newsTitle);
+
+        setListAdapter(newAdapter);
 
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
 
-//        NetworkUtils disconnectNetwork = new NetworkUtils(getActivity(), this);
-//        disconnectNetwork.cancel(true);
-//
-//        Log.e("Check cancel", disconnectNetwork.isCancelled()+"");
-
-    }
 }

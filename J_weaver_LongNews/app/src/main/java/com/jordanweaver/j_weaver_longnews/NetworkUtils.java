@@ -1,10 +1,24 @@
 package com.jordanweaver.j_weaver_longnews;
 
+
+//
+//
+//
+//Jordan Weaver
+//
+//
+//
+
+
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.apache.commons.io.IOUtils;
@@ -52,9 +66,8 @@ public class NetworkUtils extends AsyncTask<String, Void, ArrayList<NewsObject> 
         if (manager != null) {
             NetworkInfo info = manager.getActiveNetworkInfo();
             if (info == null) {
-                Toast.makeText(mContext, "No Network Connection", Toast.LENGTH_LONG).show();
+                Log.e("No", "NETWORK");
             } else {
-                Log.i("Network", "Device is connected");
                 if (info.isConnected()) {
                     if (info.isConnected()) {
 
@@ -125,9 +138,41 @@ public class NetworkUtils extends AsyncTask<String, Void, ArrayList<NewsObject> 
     @Override
     protected void onPostExecute(ArrayList<NewsObject> newsObjects) {
         super.onPostExecute(newsObjects);
-        theData.updateArray(newsObjects);
+
+        if(newsObjects.size() != 0) {
+            theData.updateArray(newsObjects);
+        } else {
+            Log.e("Network failed", "Please try again");
+
+
+            ImageView image = new ImageView(mContext);
+            image.setImageResource(R.drawable.jordanceley2);
+
+
+            AlertDialog.Builder celeyAlert = new AlertDialog.Builder(mContext).setView(image);
+            celeyAlert.setTitle("Dear Celey:");
+            celeyAlert.setMessage("Feedzilla is slow sometimes, please retry");
+
+            celeyAlert.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    cancel(true);
+                    doInBackground("http://api.feedzilla.com/v1/categories/3/subcategories/65/articles.json");
+
+
+                }
+            });
+
+            celeyAlert.show();
+
+        }
 
     }
 
-
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+        cancel(true);
+    }
 }

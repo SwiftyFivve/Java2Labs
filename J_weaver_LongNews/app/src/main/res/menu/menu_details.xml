@@ -1,6 +1,20 @@
+
+
+
+<!--Jordan Weaver-->
+
+
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".DetailsActivity">
 
+    <item android:id="@+id/action_share" android:title="@string/action_share"
+        android:showAsAction="ifRoom" android:icon="@android:drawable/ic_menu_share" />
 
+    <item android:id="@+id/action_web" android:title="@string/action_web"
+        android:showAsAction="ifRoom" android:icon="@android:drawable/ic_menu_compass" />
+
+    <item android:id="@+id/action_save" android:title="action_save"
+        android:showAsAction="ifRoom" android:icon="@android:drawable/ic_menu_save" />
 
 </menu>
