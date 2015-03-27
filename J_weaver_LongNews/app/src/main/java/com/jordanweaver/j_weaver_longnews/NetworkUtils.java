@@ -157,8 +157,6 @@ public class NetworkUtils extends AsyncTask<String, Void, ArrayList<NewsObject> 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
-                    cancel(true);
-                    doInBackground("http://api.feedzilla.com/v1/categories/3/subcategories/65/articles.json");
 
 
                 }

@@ -63,15 +63,17 @@ public class NewsFeedFrag extends ListFragment implements NetworkUtils.DisplayDa
 
     }
 
+
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onResume() {
+        super.onResume();
 
         NetworkUtils connectNetwork = new NetworkUtils(getActivity(), this);
         connectNetwork.execute("http://api.feedzilla.com/v1/categories/3/subcategories/65/articles.json");
 
 
     }
+    
 
     @Override
     public void updateArray(ArrayList<NewsObject> _news) {
