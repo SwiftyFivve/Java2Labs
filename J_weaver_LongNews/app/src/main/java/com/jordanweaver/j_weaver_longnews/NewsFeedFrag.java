@@ -73,7 +73,7 @@ public class NewsFeedFrag extends ListFragment implements NetworkUtils.DisplayDa
 
 
     }
-    
+
 
     @Override
     public void updateArray(ArrayList<NewsObject> _news) {
